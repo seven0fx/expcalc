@@ -37,8 +37,31 @@ const TargetDensity = {
 
 // console.log(SteelThickness['Se-75'].slopeA + " " + SteelThickness['Se-75'].interceptB)
 
-// function calc(SourceType, Activity, Thickness, Film, SourceToDetector, Density){
-//     return SourceType+Activity+Thickness+Film+SourceToDetector+Density;
-// }
+function calcIso(mSourceType, mActivity, mSteelThickness, mFilmType, mSourceToDetector, mDensity)
+    {
+        dicke = mSteelThickness;
+        slope = SteelThickness[mSourceType].slopeA;
+        intercept = SteelThickness[mSourceType].interceptB;
+        erg = Math.exp((slope * dicke + intercept)) * 2;
+        // console.log('F thickness: '+erg);
+        erg = FilmType[mSourceType][mFilmType] * erg;
+        // console.log('Film value: '+erg);
+        b = TargetDensity[mSourceType][mFilmType]['b'];
+        c = TargetDensity[mSourceType][mFilmType]['c'];
+        erg2 = mDensity * b + c;
+        // console.log('Relative exposure RE: '+erg2);
+        erg = erg2 * erg;
+        // console.log('Target density: '+erg);
+        erg = mSourceToDetector**2 / 1_000_000 * erg;
+        // console.log('SDD: '+erg);
+        erg = erg / mActivity;
+        // console.log('Time: '+erg);
+        // console.log('Time in seconds: '+erg*60);
+        var date = new Date(null);
+        date.setSeconds(erg*60);
+        var result = date.toISOString().substr(11, 8);
+        // console.log(result);
+        return result;
+    }
 
 
