@@ -8,10 +8,7 @@
 <script src="calc.js"></script>
 
 <style>
-  input{text-align: center;}
-  .w3-margin{margin: 4px!important;}
-
-  @font-face{font-family: 'GE Inspira Bold';src: url('../expcalc/GE-Inspira-Bold.ttf');}
+@font-face{font-family: 'GE Inspira Bold';src: url('../expcalc/GE-Inspira-Bold.ttf');}
 html,body {
     font-family: 'GE Inspira Bold';
     font-style: normal;
@@ -21,8 +18,9 @@ html,body {
     background-color: var(--bg-color);
     }
 h1,h2,h3,h4,h5,h6{font-family:"GE Inspira Bold",Arial,sans-serif;font-weight:600;margin:10px 0}.w3-wide{letter-spacing:4px}
-.color-blue {background-color: var(--blue-color);}
-.color-grey {background-color: var(--grey-color);}
+p{margin: auto;}
+input{text-align: center;}
+.w3-margin{margin: 4px!important;}
 
 </style>
 <body class="w3-blue">
@@ -42,14 +40,14 @@ h1,h2,h3,h4,h5,h6{font-family:"GE Inspira Bold",Arial,sans-serif;font-weight:600
         <div class="w3-col s4 w3-center">
             <div class="w3-white w3-round-large w3-margin">
                 <p>Aktivität</p>
-                    <input id="Aktivität" class="w3-input w3-border-0 w3-large" type="number"min="1" step="0.1" value="0">
+                    <input id="Aktivität" class="w3-input w3-border-0 w3-large" type="number"min="1" step="0.1">
                 <p>Curie</p>
             </div>
         </div>
         <div class="w3-col s4 w3-center">
             <div class="w3-white w3-round-large w3-margin">
                 <p>Wanddicke</p>
-                    <input id="Wanddicke" class="w3-input w3-border-0 w3-large" type="number"min="1" step="0.1" value="0">
+                    <input id="Wanddicke" class="w3-input w3-border-0 w3-large" type="number"min="1" step="0.1">
                 <p>mm</p>
             </div>
         </div>
@@ -66,20 +64,20 @@ h1,h2,h3,h4,h5,h6{font-family:"GE Inspira Bold",Arial,sans-serif;font-weight:600
         <div class="w3-col s4 w3-center">
             <div class="w3-white w3-round-large w3-margin">
                 <p>FFA</p>
-                    <input id="FFA" class="w3-input w3-border-0 w3-large" type="number"min="1" step="0.1" value="0">
+                    <input id="FFA" class="w3-input w3-border-0 w3-large" type="number"min="1" step="0.1">
                 <p>mm</p>
             </div>
         </div>
         <div class="w3-col s4 w3-center">
             <div class="w3-white w3-round-large w3-margin">
                 <p>Schwärzung</p>
-                    <input id="Schwärzung" class="w3-input w3-border-0 w3-large" type="number" min="1" max="4" step="0.1" value="0">
+                    <input id="Schwärzung" class="w3-input w3-border-0 w3-large" type="number" min="1" max="4" step="0.1" value="3.0">
                 <p>&NonBreakingSpace;</p>
             </div>
         </div>
     </div>
 
-    <div class="w3-container w3-center">
+    <div class="w3-container w3-center w3-section">
         <input onclick="clickf()" id="Berechnen" class="w3-button w3-round-xlarge w3-xxlarge w3-green w3-hover-green" type="submit" value="Berechnen">
                 
         </input>
@@ -88,7 +86,7 @@ h1,h2,h3,h4,h5,h6{font-family:"GE Inspira Bold",Arial,sans-serif;font-weight:600
     <div class="w3-container w3-center w3-section">
             <div class="w3-round-xlarge">
                 <div>Belichtungszeit</div>
-                <div class="w3-xxxlarge">00:00:00</div>
+                <div id="Zeit"class="w3-xxxlarge">00:00:00</div>
                 <div>Stunden : Minuten : Sekunden</div>
             </div>
     </div>
@@ -112,7 +110,6 @@ var Quelle=""
 $(function(){
 
 // Quelle Buttons...
-
     $('#Quelle>input').click(function()
     {
         Quelle = $(this).val();
@@ -120,38 +117,32 @@ $(function(){
         $('#Quelle>input').removeClass('w3-gray');
         $('#'+Quelle).addClass('w3-gray');
     });
-
-
-    
 //
 });
 
-    function clickf() {
-        $('#Error').addClass('w3-hide');
-        error_txt = ""
-        if (Quelle == ""){error_txt += 'Quelle '}
-        const mylist = ['Aktivität','Wanddicke','Filmtyp','FFA','Schwärzung'];
-        mylist.forEach(mycheck);
+// Berechnen Button
+function clickf() {
+    $('#Error').addClass('w3-hide');
+    error_txt = ""
+    if (Quelle == ""){error_txt += 'Quelle '}
+    const mylist = ['Aktivität','Wanddicke','Filmtyp','FFA','Schwärzung'];
+    mylist.forEach(mycheck);
 
-        if (error_txt != ""){
-            $('#Error').removeClass('w3-hide');
-            $('#Error').text(error_txt+'fehlt');
-        }
-        else {console.log('ready')}
-        
-
-        function mycheck(value)
-        {
-            if ($('#'+value).val() == 0 || $('#'+value).val() == "")
-            {error_txt += value +' '}
-        }
-
-        // const Aktivität = $('#Aktivität').val();
-        // const Wanddicke = SteelThickness[Quelle].slopeA ;
-        // const Filmtyp = $('#Filmtyp').val();
-        // const FFA = $('#FFA').val();
-        // const Schwärzung = $('#Schwärzung').val();
+    if (error_txt != ""){
+        $('#Error').removeClass('w3-hide');
+        $('#Error').text(error_txt+'fehlt');
     }
+    else {console.log('ready')}
+    $('#Zeit').text(calcIso(Quelle,$('#Aktivität').val(),$('#Wanddicke').val(),$('#Filmtyp').val(),$('#FFA').val(),$('#Schwärzung').val()));
+
+    // alle Variablen vorhanden?
+    function mycheck(value)
+    {
+        if ($('#'+value).val() == 0 || $('#'+value).val() == "")
+        {error_txt += value +' '}
+    }
+
+}
 </script>
 </body>
 </html>
