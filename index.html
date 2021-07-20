@@ -25,9 +25,8 @@ input{text-align: center;}
 </style>
 <body class="w3-blue">
 
-<div class="w3-container w3-section">
+<div class="w3-container w3-section w3-content" style="max-width: 400px;">
 
-    <!-- <form action="/" method="post"> -->
     <div class="w3-row w3-center">
         <div id="Quelle" class="w3-bar w3-white w3-round-large w3-large">
             <input id="Se-75" class="w3-bar-item w3-button" name="src1" type="button" value="Se-75"></input>
@@ -36,22 +35,22 @@ input{text-align: center;}
         </div>    
     </div>
 
-    <div class="w3-row ">
-        <div class="w3-col s4 w3-center">
+    <div class="w3-row w3-center">
+        <div class="w3-col s4">
             <div class="w3-white w3-round-large w3-margin">
                 <p>Aktivität</p>
                     <input id="Aktivität" class="w3-input w3-border-0 w3-xlarge" type="number"min="1" step="0.1">
                 <p>Curie</p>
             </div>
         </div>
-        <div class="w3-col s4 w3-center">
+        <div class="w3-col s4">
             <div class="w3-white w3-round-large w3-margin">
                 <p>Wanddicke</p>
                     <input id="Wanddicke" class="w3-input w3-border-0 w3-xlarge" type="number"min="1" step="0.1">
                 <p>mm</p>
             </div>
         </div>
-        <div class="w3-col s4 w3-center">
+        <div class="w3-col s4">
             <div class="w3-white w3-round-large w3-margin">
             <p>Film Typ</p>
             <input id="Filmtyp" class="w3-input w3-border-0 w3-xlarge" type="text" list="Dx">
@@ -60,15 +59,15 @@ input{text-align: center;}
         </div>
     </div>
 
-    <div class="w3-row">
-        <div class="w3-col s4 w3-center">
+    <div class="w3-row w3-center">
+        <div class="w3-col s4">
             <div class="w3-white w3-round-large w3-margin">
                 <p>FFA</p>
                     <input id="FFA" class="w3-input w3-border-0 w3-xlarge" type="number"min="1" step="0.1">
                 <p>mm</p>
             </div>
         </div>
-        <div class="w3-col s4 w3-center">
+        <div class="w3-col s4">
             <div class="w3-white w3-round-large w3-margin">
                 <p>Schwärzung</p>
                     <input id="Schwärzung" class="w3-input w3-border-0 w3-xlarge" type="number" min="1" max="4" step="0.1" value="3.0">
@@ -95,6 +94,7 @@ input{text-align: center;}
     </div>
 
 </div>
+
 <datalist id="Dx">
     <option value="D2">
     <option value="D3">
