@@ -4,7 +4,7 @@
     "display": "browser",
     "orientation": "portrait",
     "scope": "/expcalc",
-    "start_url": "seven0fx.github.io/expcalc",
+    "start_url": "/expcalc",
     "name": "Belichtungsrechner",
     "short_name": "ExpCalc",
     "icons": [
