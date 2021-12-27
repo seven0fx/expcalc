@@ -125,23 +125,26 @@
             Fehler text
         </div>
         <!-- Datenschutz -->
-        <div class="w3-bottom w3-text-white">
+        <div style="margin-top: 100px;" class="w3-container w3-text-white">
             <a class="" onclick="document.getElementById('Privacy').style.display='block'">Datenschutz</a>
         </div>
         <!-- Datenschutz -->
         <div id="Privacy" class="w3-modal">
-                <div class="w3-modal-content w3-round w3-white w3-padding">
+            <div class="w3-modal-content w3-round w3-white w3-padding">
                 <h3 class="w3-center">Datenschutz</h3>
-                <p>Diese Seite nutzt Dateien von 
-                    <li><a href="https://ajax.googleapis.com" target="_blank">ajax.googleapis.com</a> - jquery.min.js</li>
+                <p>Diese Seite nutzt Dateien von
+                    <li><a href="https://ajax.googleapis.com" target="_blank">ajax.googleapis.com</a> - jquery.min.js
+                    </li>
                     <li><a href="https://www.w3schools.com" target="_blank">www.w3schools.com</a> - w3.css</li>
                 </p>
                 <p>Das Aufrufen dieser Seite erzeugt Log Einträge auf den oben aufgeführten Seiten
-                sowie auf
-                <li><a href="https://github.com" target="_blank">github.com</a></li> wo diese Seite gehostet ist.</p>
+                    sowie auf
+                    <li><a href="https://github.com" target="_blank">github.com</a></li> wo diese Seite gehostet ist.
+                </p>
                 <div class="w3-center">
-                <button onclick="document.getElementById('Privacy').style.display='none'"
-                    class="w3-button w3-round w3-margin w3-gray">Schließen</button></div>
+                    <button onclick="document.getElementById('Privacy').style.display='none'"
+                        class="w3-button w3-round w3-margin w3-gray">Schließen</button>
+                </div>
             </div>
         </div>
     </div>
@@ -159,7 +162,6 @@
         var Quelle = ""
         // Document ready
         $(function () {
-
             // Quelle Buttons...
             $('#Quelle>input').click(function () {
                 Quelle = $(this).val();
@@ -192,4 +194,5 @@
         }
     </script>
 </body>
+
 </html>
