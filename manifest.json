@@ -3,8 +3,8 @@
     "background_color": "#35a9f6",
     "display": "browser",
     "orientation": "portrait",
-    "scope": "/",
-    "start_url": "/",
+    "scope": "/expcalc",
+    "start_url": "/expcalc",
     "name": "Belichtungsrechner",
     "short_name": "ExpCalc",
     "icons": [
